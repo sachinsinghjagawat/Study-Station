@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Study Station</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_google_sign_in">GoogleSignInActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="more"><u><b><i>more</i></b></u></string>
+
+    <string-array name="departmentList">
+        <item>Civil</item>
+        <item>Computer Science</item>
+        <item>Electrical</item>
+        <item>Electronics And Communication</item>
+        <item>Metallurgy</item>
+        <item>Production</item>
+        <item>Chemical</item>
+        <item>Mechanical</item>
+        <item>Instrumentation And Control</item>
+    </string-array>
+
+    <string-array name="sectionList">
+        <item>A</item>
+        <item>B</item>
+        <item>No Section</item>
+    </string-array>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="radio1"><b>Morning Music With Birds and Piano</b> \n<i><font color='#03A9F4'>(Good for Positive and Relaxed Studies)</font></i></string>
+    <string name="radio2"><b>Alpha Waves</b> \n<i><font color='#03A9F4'>(Good for Memory , Concentration and Focused Studies)</font></i></string>
+    <string name="radio3"><b>Krishna Flute</b> \n<i><font color='#03A9F4'>(Good for Melodious and Relaxed Studies)</font></i></string>
+    <string name="radio4"><b>Morning Positive Energy</b> \n<i><font color='#03A9F4'>(Good for Positive and Calm Studies)</font></i></string>
+    <string name="radio5"><b>Relaxing Piano with Rain</b> \n<i><font color='#03A9F4'>(Good for Melodious and alm Studies)</font></i></string>
+
+
+</resources>

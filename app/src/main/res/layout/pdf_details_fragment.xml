@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".studentNotes.PdfDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/pdfHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:text="Heading"
+                            android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/pdfUsername"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="italic"
+                            android:paddingLeft="8dp"
+                            android:text="-by username | "/>
+                        <TextView
+                            android:id="@+id/pdfRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5.0"
+                            android:padding="8dp"
+                            android:drawablePadding="4dp"
+                            android:drawableRight="@drawable/star_icon"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/pdfRateThisPdf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rate This PDF"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:drawablePadding="8dp"
+                            android:drawableLeft="@drawable/star_icon"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_gravity="center_vertical"
+                            android:textStyle="italic"/>
+
+                        <Button
+                            android:id="@+id/pdfOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:text="Open"
+                            android:padding="8dp"
+                            android:drawableLeft="@drawable/folder_open"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="7dp"
+                            android:drawablePadding="8dp"
+                            android:background="@drawable/pdf_open_button"
+                            android:textAllCaps="true"/>
+                        <Button
+                            android:id="@+id/pdfDownload"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Download"
+                            android:drawableLeft="@drawable/cloud_download_icon"
+                            android:paddingLeft="4dp"
+                            android:padding="8dp"
+                            android:drawablePadding="8dp"
+                            android:background="@drawable/pdf_open_button"
+                            android:layout_margin="4dp"
+                            android:textAllCaps="false"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discussion"
+                    android:textStyle="italic"
+                    android:paddingHorizontal="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="3dp"
+                    android:textSize="15sp"
+                    android:textColor="#272727"/>
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pdfDiscussionRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pdfAskQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edit_round"
+                android:drawableLeft="@drawable/question_icon2"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:gravity="bottom"
+                android:hint="Enter Your Question Here"
+                android:inputType="textMultiLine|textCapSentences"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/pdfSendQuestion"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/send_icon"
+                android:padding="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

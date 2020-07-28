@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:numStars="5" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submitButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFEB38"
+            android:background="@drawable/edit_round"
+            android:drawableLeft="@drawable/star_icon"
+            android:drawablePadding="8dp"
+            android:paddingHorizontal="10dp"
+            android:text="Submit"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/cancelButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FF5722"
+            android:drawableLeft="@drawable/cancel_icon"
+            android:drawablePadding="10dp"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/edit_round"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textAllCaps="false"/>
+    </RelativeLayout>
+</LinearLayout>

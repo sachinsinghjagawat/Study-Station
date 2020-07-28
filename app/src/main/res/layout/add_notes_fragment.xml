@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dialog.AddNotesDialog">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/addNotesHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="5dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:padding="6dp"
+            android:background="@drawable/edit_round"
+            android:inputType="textPersonName|textCapWords"
+            android:hint="Enter The Heading" />
+
+        <EditText
+            android:id="@+id/addNotesContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="#4A4A4A"
+            android:hint="Enter The Note"
+            android:drawableStart="@drawable/notes_nav_icon"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:drawablePadding="8dp"
+            android:background="@drawable/edit_round"
+            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine|textCapSentences" />
+
+        <Button
+            android:id="@+id/adddNotesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Note"
+            android:textSize="16dp"
+            android:padding="8dp"
+            android:textAllCaps="false"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/pdf_open_button"/>
+    </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

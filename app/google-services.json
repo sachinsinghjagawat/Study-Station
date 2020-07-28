@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1039026622962",
+    "firebase_url": "https://study-station-2fd38.firebaseio.com",
+    "project_id": "study-station-2fd38",
+    "storage_bucket": "study-station-2fd38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039026622962:android:2e2f7d203510b004c21b6b",
+        "android_client_info": {
+          "package_name": "com.example.studystation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039026622962-isolv60m9v6mq15mk6t0jqginfi3dmis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_wF-iLr0h4fjOVUv_6UDmROfKxmAbxFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039026622962-isolv60m9v6mq15mk6t0jqginfi3dmis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
