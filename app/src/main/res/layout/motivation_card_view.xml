@@ -11,6 +11,7 @@
         android:layout_margin="5dp"
         android:elevation="8dp"
         android:padding="4dp"
+        app:cardBackgroundColor="?attr/cardBackgroundColor"
         app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="true"
         tools:layout_editor_absoluteX="1dp"
@@ -55,7 +56,8 @@
                     android:layout_margin="3dp"
                     android:text="0"
                     android:textColor="#515151"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    android:visibility="gone"/>
 
                 <ImageView
                     android:id="@+id/likeImage"
@@ -88,7 +90,7 @@
                 android:drawablePadding="10dp"
                 android:padding="10dp"
                 android:text="text"
-                android:textColor="#191919"
+                android:textColor="?attr/textColor"
                 android:textSize="18dp" />
 
         </LinearLayout>

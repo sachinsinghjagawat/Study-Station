@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".motivation.WebView">
 
     <WebView
         android:id="@+id/webViewForTextContent"
         android:layout_width="match_parent"
+        android:background="?attr/pureWhite"
         android:layout_height="match_parent" />
 
     <ProgressBar

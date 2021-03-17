@@ -47,12 +47,12 @@ public class MotivationAdapter extends RecyclerView.Adapter<MotivationAdapter.Vi
         this.motivationList = motivationList;
         this.context = context;
 
-//        db = FirebaseFirestore.getInstance();
-//
-//        mAuth = FirebaseAuth.getInstance();
-//        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-//        assert firebaseUser != null;
-//        email = firebaseUser.getEmail();
+        db = FirebaseFirestore.getInstance();
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        assert firebaseUser != null;
+        email = firebaseUser.getEmail();
 
     }
 
@@ -68,7 +68,7 @@ public class MotivationAdapter extends RecyclerView.Adapter<MotivationAdapter.Vi
         final Motivation motivation = motivationList.get(position);
         holder.motivationContent.setText(motivation.getContent());
         int count = (int) motivation.getLike();
-        holder.likeCount.setVisibility(View.GONE);
+        holder.likeCount.setText(motivation.getUsers().size() + "");
         Picasso.get().load(motivation.getImageUrl()).fit().into(holder.motivationImage);
 
         holder.linkText.setOnClickListener(new View.OnClickListener() {
@@ -120,9 +120,27 @@ public class MotivationAdapter extends RecyclerView.Adapter<MotivationAdapter.Vi
                 if(holder.likeImage.getTag().equals("outline")) {
                     Picasso.get().load(R.drawable.heart_colored).fit().into(holder.likeImage);
                     holder.likeImage.setTag("colored");
+                    if (!motivation.getUsers().contains(email)){
+                        db.collection("Motivation").document(MotivationList.id).update("motivationContent" , FieldValue.arrayRemove(motivation));
+                        Motivation newMotivation = motivation;
+                        List<String> userList = motivation.getUsers();
+                        userList.add(email);
+                        newMotivation.setUsers(userList);
+                        holder.likeCount.setText((motivation.getUsers().size() + 1) + "");
+                        db.collection("Motivation").document(MotivationList.id).update("motivationContent" , FieldValue.arrayUnion(newMotivation));
+                    }
                 }else {
                     Picasso.get().load(R.drawable.love_heart_outline).fit().into(holder.likeImage);
                     holder.likeImage.setTag("outline");
+                    if (motivation.getUsers().contains(email)){
+                        db.collection("Motivation").document(MotivationList.id).update("motivationContent" , FieldValue.arrayRemove(motivation));
+                        Motivation newMotivation = motivation;
+                        List<String> userList = motivation.getUsers();
+                        userList.remove(email);
+                        newMotivation.setUsers(userList);
+                        holder.likeCount.setText((motivation.getUsers().size() - 1) + "");
+                        db.collection("Motivation").document(MotivationList.id).update("motivationContent" , FieldValue.arrayUnion(newMotivation));
+                    }
                 }
             }
         });

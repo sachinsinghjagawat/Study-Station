@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:text="Name" />
@@ -50,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="?attr/lightText"
                 android:text="name"
                 android:padding="8dp" />
         </LinearLayout>
@@ -61,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="E-mail"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <TextView
@@ -69,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="?attr/lightText"
                 android:text="E-mail"
                 android:padding="8dp"/>
 
@@ -81,13 +83,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Department"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <TextView
                 android:id="@+id/departmentTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/lightText"
                 android:padding="8dp"
                 android:text="department"/>
 
@@ -101,15 +104,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Section"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <TextView
                 android:id="@+id/sectionTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/lightText"
                 android:padding="8dp"
                 android:text="section"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Dark Mode"
+                android:textColor="?attr/textColor"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:id="@+id/darkModeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="8dp"/>
 
         </LinearLayout>
 
@@ -126,6 +154,7 @@
             android:textAllCaps="false"
             android:textSize="17sp"
             android:text="Change Profile"
+            android:textColor="?attr/textColor"
             android:layout_gravity="center_horizontal"
             android:onClick="changeProfile"/>
 
@@ -140,6 +169,7 @@
             android:drawablePadding="20dp"
             android:onClick="signOut"
             android:paddingHorizontal="25dp"
+            android:textColor="?attr/textColor"
             android:text="Sign Out"
             android:textAllCaps="false"
             android:textSize="17sp" />

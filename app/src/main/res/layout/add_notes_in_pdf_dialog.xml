@@ -7,10 +7,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/backgroundColor">
 
         <LinearLayout
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:padding="8dp"
             android:layout_gravity="center_horizontal"
@@ -22,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textColor="#4A4A4A"
+                android:textColor="?attr/textColor"
+                android:textColorHint="?attr/hintTextColor"
                 android:hint="Enter The Note"
                 android:drawableStart="@drawable/notes_nav_icon"
                 android:padding="8dp"
@@ -40,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="Add Note"
                 android:textSize="16dp"
+                android:textColor="?attr/textColor"
                 android:padding="8dp"
                 android:textAllCaps="false"
                 android:layout_margin="15dp"

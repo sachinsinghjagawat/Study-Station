@@ -5,6 +5,35 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="pureWhite">#FFFFFF</item>
+        <item name="boundaryColor">#878787</item>
+        <item name="lightText">#5E5E5E</item>
+        <item name="hintTextColor">#787878</item>
+        <item name="gradientColor">#70BCF8</item>
+        <item name="backgroundColor">#F3F5F6</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
+        <item name="textColor">#000000</item>
+        <item name="tintColor">@color/colorAccent</item>
+        <item name="buttonColor">@color/colorAccent</item>
+
+    </style>
+
+
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="pureWhite">#393838</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">#303030</item>
+        <item name="lightText">#E4E4E4</item>
+        <item name="hintTextColor">#C6C5C5</item>
+        <item name="gradientColor">#00335C</item>
+        <item name="cardBackgroundColor">#4C4C4C</item>
+        <item name="textColor">#ffffff</item>
+        <item name="tintColor">#ffffff</item>
+        <item name="buttonColor">#010C49</item>
+
     </style>
 <!--    <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">-->
 <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->

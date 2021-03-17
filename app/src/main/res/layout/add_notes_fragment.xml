@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".dialog.AddNotesDialog">
 
     <ScrollView
@@ -10,7 +11,7 @@
         android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:padding="8dp"
         android:layout_gravity="center_horizontal"
@@ -25,7 +26,8 @@
             android:layout_margin="5dp"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="?attr/textColor"
+            android:textColorHint="?attr/hintTextColor"
             android:padding="6dp"
             android:background="@drawable/edit_round"
             android:inputType="textPersonName|textCapWords"
@@ -36,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="#4A4A4A"
+            android:textColor="?attr/lightText"
+            android:textColorHint="?attr/hintTextColor"
             android:hint="Enter The Note"
             android:drawableStart="@drawable/notes_nav_icon"
             android:padding="8dp"
@@ -52,6 +55,7 @@
             android:id="@+id/adddNotesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?attr/textColor"
             android:text="Add Note"
             android:textSize="16dp"
             android:padding="8dp"

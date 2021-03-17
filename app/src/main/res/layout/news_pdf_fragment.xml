@@ -8,6 +8,7 @@
 
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView2"
+        android:background="?attr/pureWhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

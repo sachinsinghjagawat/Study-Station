@@ -3,12 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/pureWhite"
     android:orientation="vertical">
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/cardBackgroundColor"
         android:layout_gravity="center_horizontal"
         android:numStars="5" />
 
@@ -27,6 +29,7 @@
             android:drawableLeft="@drawable/star_icon"
             android:drawablePadding="8dp"
             android:paddingHorizontal="10dp"
+            android:textColor="?attr/textColor"
             android:text="Submit"
             android:textAllCaps="false"/>
 
@@ -37,6 +40,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="8dp"
             android:backgroundTint="#FF5722"
+            android:textColor="?attr/textColor"
             android:drawableLeft="@drawable/cancel_icon"
             android:drawablePadding="10dp"
             android:paddingHorizontal="10dp"

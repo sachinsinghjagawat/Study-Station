@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="pureWhite" format="color" />
+        <attr name="boundaryColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="cardBackgroundColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="lightText" format="color" />
+        <attr name="gradientColor" format="color"/>
+        <attr name="hintTextColor" format="color" />
+        <attr name="tintColor" format="color" />
+        <attr name="buttonColor" format="color" />
+
+    </declare-styleable>
+</resources>

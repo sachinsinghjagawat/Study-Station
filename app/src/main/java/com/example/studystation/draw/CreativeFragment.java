@@ -37,7 +37,7 @@ public class CreativeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MyCanvas myCanvas = new MyCanvas(getContext());
+        MyCanvas myCanvas = new MyCanvas(CreativeFragment.this.getContext());
         drawView.addView(myCanvas);
 
     }

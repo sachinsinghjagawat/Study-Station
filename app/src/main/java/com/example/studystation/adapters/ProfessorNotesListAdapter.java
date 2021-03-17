@@ -49,7 +49,7 @@ public class ProfessorNotesListAdapter extends RecyclerView.Adapter<ProfessorNot
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PdfDetails fragment = PdfDetails.newInstance(docCardViewDetails.getUrlOfPdf());
+                PdfDetails fragment = PdfDetails.newInstance(docCardViewDetails.getUrlOfPdf() , docCardViewDetails.getUrlOfImage());
 
                 FragmentManager fragmentManager = context.getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

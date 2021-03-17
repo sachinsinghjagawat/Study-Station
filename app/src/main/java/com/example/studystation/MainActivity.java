@@ -10,7 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.studystation.draw.CreativeFragment;
+import com.example.studystation.extraActivity.Help;
 import com.example.studystation.getDemand.GetDemandList;
 import com.example.studystation.motivation.MotivationList;
 import com.example.studystation.myProfile.MyProfile;
@@ -59,6 +62,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.studystation.myProfile" , Context.MODE_PRIVATE);
+
+
+        if (sharedPreferences.getBoolean("DarkMode" , false)) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         assert firebaseUser != null;
@@ -90,8 +102,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.my_profile);
         }else {
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ProfessorNotesSubject()).commit();
-                navigationView.setCheckedItem(R.id.professor_notes);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new StudentNotesSubject()).commit();
+                navigationView.setCheckedItem(R.id.student_notes);
             }
         }
     }
@@ -136,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.replace(R.id.fragmentContainer, new CreativeFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                Toast.makeText(this, "Start drawing anything", Toast.LENGTH_SHORT).show();
 
                 break;
             }
@@ -172,15 +185,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.help : {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentContainer, new Help());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                Toast.makeText(this, "Feel free to contact me :)", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.feedback : {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentContainer, new Help());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                Toast.makeText(this, "Please Leave your feedback on my WhatsApp", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.social_media_handle : {
+                Toast.makeText(this, "This button is under construction :(", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.terms_and_condition : {
+                Toast.makeText(this, "This button is under construction :(", Toast.LENGTH_SHORT).show();
                 break;
             }
         }

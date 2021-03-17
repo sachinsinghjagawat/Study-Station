@@ -1,7 +1,10 @@
 package com.example.studystation.studentNotes;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Notification;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -52,8 +55,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.studystation.studentNotes.NotificationClass.CHANNEL_1_ID;
+import static com.example.studystation.studentNotes.NotificationClass.CHANNEL_2_ID;
 
 public class AddStudentNotes extends Fragment {
 
@@ -66,6 +72,7 @@ public class AddStudentNotes extends Fragment {
     ProgressBar progressBar;
     String sectionText , departmentText , subjectText , pdfUrl , imageUrl , userName , uriString ;
     Uri uri;
+    NotificationManagerCompat notificationManager;
 
     public static final int KEY = 1;
 
@@ -95,6 +102,7 @@ public class AddStudentNotes extends Fragment {
         photo = rootView.findViewById(R.id.profilePhoto3);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBarImage3);
 
+        notificationManager = NotificationManagerCompat.from(getContext());
         db = FirebaseFirestore.getInstance();
 
         if (getArguments() != null) {
@@ -117,6 +125,9 @@ public class AddStudentNotes extends Fragment {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("com.example.studystation.myProfile", Context.MODE_PRIVATE);
         departmentText = sharedPreferences.getString("department", "");
         sectionText = sharedPreferences.getString("section", "");
+
+        department.setText(departmentText);
+        section.setText(sectionText);
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,6 +265,23 @@ public class AddStudentNotes extends Fragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getActivity(), "Database Updated ", Toast.LENGTH_SHORT).show();
+                            Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.thanks_icon)
+                                    .setContentTitle("Vote Of Thanks")
+                                    .setContentText("Thank For Sharing your notes in this Community :)")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+                            notificationManager.notify(1, notification);
+
+                            Notification notification2 = new NotificationCompat.Builder(getContext(), CHANNEL_2_ID)
+                                    .setSmallIcon(R.drawable.app_icon)
+                                    .setContentTitle("Notes Update")
+                                    .setContentText("A New Note is uploaded in " + subjectText)
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+                            notificationManager.notify(2, notification2);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -284,6 +312,23 @@ public class AddStudentNotes extends Fragment {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getActivity(), "Database Updated ", Toast.LENGTH_SHORT).show();
+                            Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.thanks_icon)
+                                    .setContentTitle("Vote Of Thanks")
+                                    .setContentText("Thank For Sharing your notes in this Community :)")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+                            notificationManager.notify(1, notification);
+
+                            Notification notification2 = new NotificationCompat.Builder(getContext(), CHANNEL_2_ID)
+                                    .setSmallIcon(R.drawable.app_icon)
+                                    .setContentTitle("Notes Update")
+                                    .setContentText("A New Note is uploaded in " + subjectText)
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+                            notificationManager.notify(2, notification2);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

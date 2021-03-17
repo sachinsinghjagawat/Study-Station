@@ -29,9 +29,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.studystation.MainActivity;
 import com.example.studystation.R;
 import com.example.studystation.adapters.QuestionAdapter;
 import com.example.studystation.adapters.StudentNotesListAdapter;
@@ -54,6 +56,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.WriteBatch;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -69,6 +72,7 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
 
     private PdfDetailsViewModel mViewModel;
     TextView heading , userName, rating , rateThisPdf;
+    ImageView photo;
     Button openPdf , downloadPdf , sendQuestion;
     EditText askQuestion;
     RecyclerView recyclerView;
@@ -82,10 +86,11 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
     DocDetails docDetails;
     List<Question> questionList;
 
-    public static PdfDetails newInstance(String url) {
+    public static PdfDetails newInstance(String url , String photoUrl) {
         PdfDetails pdfDetails = new PdfDetails();
         Bundle args = new Bundle();
         args.putString("url" , url);
+        args.putString("photoUrl" , photoUrl);
         pdfDetails.setArguments(args);
         return pdfDetails;
     }
@@ -108,7 +113,8 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
                     id = documentSnapshot.getId();
                     docDetails = documentSnapshot.toObject(DocDetails.class);
                     heading.setText(docDetails.getNameOfPdf());
-                    userName.setText("-by " + docDetails.getNameOfUser());
+                    if (!docDetails.getNameOfUser().equals("Sachin Singh Jagawat")) userName.setText("-this note is contributed by " + docDetails.getNameOfUser() + "\nWe Thank You for your support ❤❤❤");
+                    else userName.setText("-by " + "Sachin Singh Jagawat");
                     double ratingValue = (docDetails.getSumRating() / docDetails.getTotalRating()) * 5 ;
                     int r1 = (int) (ratingValue * 100);
                     float r2 = (float) r1 / 100 ;
@@ -139,6 +145,7 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
         sendQuestion = rootView.findViewById(R.id.pdfSendQuestion);
         askQuestion = rootView.findViewById(R.id.pdfAskQuestion);
         recyclerView = rootView.findViewById(R.id.pdfDiscussionRecyclerView);
+        photo = rootView.findViewById(R.id.pdfPhoto);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
@@ -157,6 +164,11 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new QuestionAdapter(questionList, PdfDetails.this);
         recyclerView.setAdapter(adapter);
+
+        if (getArguments() != null) {
+            Picasso.get().load(getArguments().getString("photoUrl")).centerCrop().fit().into(photo);
+            urlOfPdf = getArguments().getString("url");
+        }
 
         openPdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +191,18 @@ public class PdfDetails extends Fragment implements RatingDialog.OnInputSelected
 ////                intent.setType(Intent.ACTION_OPEN_DOCUMENT);
 //                intent.setData(Uri.parse(docDetails.getUrlOfPdf()));
 //                startActivity(intent);
-                new DownloadTask(getContext(), urlOfPdf);
+                String urlString = docDetails.getUrlOfPdf();
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(urlString));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                try {
+                    getActivity().startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    // Chrome browser presumably not installed so allow user to choose instead
+                    intent.setPackage(null);
+                    getActivity().startActivity(intent);
+                }
+                //new DownloadTask(getContext(), urlOfPdf);
             }
         });
 

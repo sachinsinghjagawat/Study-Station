@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:text="Name" />
@@ -48,6 +48,7 @@
                 android:id="@+id/editTextName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/lightText"
                 android:layout_weight="1"
                 android:text="name"
                 android:padding="8dp" />
@@ -60,13 +61,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="E-mail"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <TextView
                 android:id="@+id/textEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/lightText"
                 android:layout_weight="1"
                 android:text="E-mail"
                 android:padding="8dp"/>
@@ -80,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Department"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <Spinner
@@ -98,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Section"
-                android:textColor="#000000"
+                android:textColor="?attr/textColor"
                 android:textStyle="bold"
                 android:padding="8dp"/>
             <Spinner
@@ -115,6 +117,7 @@
             android:text="Save"
             android:paddingStart="10dp"
             android:paddingEnd="15dp"
+            android:textColor="?attr/textColor"
             android:background="@drawable/edit_round"
             android:layout_gravity="center_horizontal" />
         <TextView
